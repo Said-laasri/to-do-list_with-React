@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import Header from './Header';
 import InputTodo from './InputTodo';
-import TodoList from './TodosList';
+import TodoList from './TodoList';
 
 const getInitialTodos = () => {
   const temp = localStorage.getItem('todos');
@@ -62,8 +62,8 @@ const TodoContainer = () => {
         <TodoList
           todos={todos}
           hundleChangeProps={handleChange}
-          deleteTodoPros={delTodo}
-          setUPdate={setUpdate}
+          deleteTodoProps={delTodo}
+          setUpdate={setUpdate}
         />
       </div>
     </div>

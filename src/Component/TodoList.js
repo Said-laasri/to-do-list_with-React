@@ -5,6 +5,7 @@ const TodoList = (props) => {
   const {
     todos, hundleChangeProps, deleteTodoProps, setUpdate,
   } = props;
+
   return (
     <ul>
       {todos.map((todo) => (
@@ -21,7 +22,9 @@ const TodoList = (props) => {
 };
 
 TodoList.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string, PropTypes.string, PropTypes.bool)).isRequired,
+  todos: PropTypes.arrayOf(
+    PropTypes.objectOf(PropTypes.string, PropTypes.string, PropTypes.bool),
+  ).isRequired,
   hundleChangeProps: PropTypes.func.isRequired,
   deleteTodoProps: PropTypes.func.isRequired,
   setUpdate: PropTypes.func.isRequired,

@@ -24,7 +24,7 @@ const TodoItem = (props) => {
   };
 
   const {
-    todo: { completed, id, title },
+    todo: { id, title, completed },
   } = props;
 
   const viewMode = {};
@@ -66,8 +66,9 @@ const TodoItem = (props) => {
   );
 };
 
-TodoItem.propType = {
-  todo: PropTypes.objectOf(PropTypes.string, PropTypes.string, PropTypes.bool).isRequired,
+TodoItem.propTypes = {
+  todo: PropTypes.objectOf(PropTypes.string, PropTypes.string, PropTypes.bool)
+    .isRequired,
   hundleChangeProps: PropTypes.func.isRequired,
   deleteTodoProps: PropTypes.func.isRequired,
   setUpdate: PropTypes.func.isRequired,
