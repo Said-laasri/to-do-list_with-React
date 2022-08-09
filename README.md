@@ -1,10 +1,10 @@
 # Project Name
 
-Todo list 
+Todo list
 
 # Description the project.
 
-Todo list is apps that saves all the input task of your choice and you can edit or delete them  
+Todo list is apps that saves all the input task of your choice and you can edit or delete them
 
 ## Built With
 
@@ -50,7 +50,6 @@ $ git clone {repository URL}
 \_use you preferd browser to run the file .html to get project website.
 to run in terminal / git :
 
-
 $npm install
 
 ---
@@ -78,6 +77,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
+- [Ibaslogic](https://github.com/Ibaslogic)
 - Microverse
 - Inspiration
 - etc
