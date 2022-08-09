@@ -1,10 +1,10 @@
 # Project Name
 
-math magisians
+Todo list 
 
 # Description the project.
 
-Calculator is apps that does calculon web browser
+Todo list is apps that saves all the input task of your choice and you can edit or delete them  
 
 ## Built With
 
@@ -14,7 +14,7 @@ Calculator is apps that does calculon web browser
 
 ## Getting Started
 
-**calculator app created with React**
+**Todo list app created with React**
 
 ---
 
@@ -25,7 +25,7 @@ follow>>>>>>>>>
 
 to use the project Leaderboard please follow :
 
-> Open GitHub and go to my GitHub repository name: math magisians clone.
+> Open GitHub and go to my GitHub repository name: To-do-list-with-React clone.
 
 > Click “Code” and copy the given URL.
 
@@ -49,6 +49,9 @@ $ git clone {repository URL}
 
 \_use you preferd browser to run the file .html to get project website.
 to run in terminal / git :
+
+
+$npm install
 
 ---
 

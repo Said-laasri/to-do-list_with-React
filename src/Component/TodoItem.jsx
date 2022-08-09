@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { FaTrash } from 'react-icons/fa';
 import styles from './TodoItem.module.css';
 
@@ -22,7 +23,9 @@ const TodoItem = (props) => {
     TextDecoration: 'line-through',
   };
 
-  const { completed, id, title } = props.todo;
+  const {
+    todo: { completed, id, title },
+  } = props;
 
   const viewMode = {};
   const editMode = {};
@@ -33,9 +36,7 @@ const TodoItem = (props) => {
     editMode.display = 'none';
   }
 
-  useEffect(() => () => {
-    console.log('clean up...');
-  }, []);
+  const { hundleChangeProps, deleteTodoProps, setUpdate } = props;
 
   return (
     <li className={styles.item}>
@@ -44,9 +45,9 @@ const TodoItem = (props) => {
           type="checkbox"
           className={styles.checkbox}
           checked={completed}
-          onChange={() => props.hundleChangeProps(id)}
+          onChange={() => hundleChangeProps(id)}
         />
-        <button type="button" onClick={() => props.deleteTodoProps(id)}>
+        <button type="button" onClick={() => deleteTodoProps(id)}>
           <FaTrash style={{ color: 'orangered', fontSize: '16px' }} />
         </button>
         <span style={completed ? completedStyle : null}>{title}</span>
@@ -57,12 +58,19 @@ const TodoItem = (props) => {
         className={styles.textInput}
         value={title}
         onChange={(e) => {
-          props.setUpdate(e.target.value, id);
+          setUpdate(e.target.value, id);
         }}
-        onKeyPress={handleUpdatedDone}
+        onKeyDown={handleUpdatedDone}
       />
     </li>
   );
+};
+
+TodoItem.propType = {
+  todo: PropTypes.objectOf(PropTypes.string, PropTypes.string, PropTypes.bool).isRequired,
+  hundleChangeProps: PropTypes.func.isRequired,
+  deleteTodoProps: PropTypes.func.isRequired,
+  setUpdate: PropTypes.func.isRequired,
 };
 
 export default TodoItem;
