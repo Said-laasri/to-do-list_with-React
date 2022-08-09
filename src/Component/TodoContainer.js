@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import Header from './Header';
 import InputTodo from './InputTodo';
-import TodoList from './TodoList';
+import TodosList from './TodosList';
 
 const getInitialTodos = () => {
   const temp = localStorage.getItem('todos');
@@ -15,17 +15,15 @@ const TodoContainer = () => {
   const [todos, setTodos] = useState(getInitialTodos());
 
   const handleChange = (id) => {
-    setTodos((prevState) => {
-      prevState.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            completed: !todo.completed,
-          };
-        }
-        return todo;
-      });
-    });
+    setTodos((prevState) => prevState.map((todo) => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          completed: !todo.completed,
+        };
+      }
+      return todo;
+    }));
   };
 
   const delTodo = (id) => {
@@ -38,15 +36,16 @@ const TodoContainer = () => {
       title,
       completed: false,
     };
+
     setTodos([...todos, newTodo]);
   };
 
   const setUpdate = (updatedTitle, id) => {
-    const temp = todos.slice();
-    const toUpdate = temp.find((todo) => todo.id === id);
+    const newTodos = todos.slice();
+    const toUpdate = newTodos.find((todo) => todo.id === id);
     toUpdate.title = updatedTitle;
 
-    setTodos(temp);
+    setTodos(newTodos);
   };
 
   useEffect(() => {
@@ -59,9 +58,9 @@ const TodoContainer = () => {
       <div className="inner">
         <Header />
         <InputTodo addTodoProps={addTodoItem} />
-        <TodoList
+        <TodosList
           todos={todos}
-          hundleChangeProps={handleChange}
+          handleChangeProps={handleChange}
           deleteTodoProps={delTodo}
           setUpdate={setUpdate}
         />

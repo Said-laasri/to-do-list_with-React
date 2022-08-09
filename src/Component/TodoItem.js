@@ -20,11 +20,11 @@ const TodoItem = (props) => {
     fontStyle: 'italic',
     color: '#595959',
     opacity: 0.4,
-    TextDecoration: 'line-through',
+    textDecoration: 'line-through',
   };
 
   const {
-    todo: { id, title, completed },
+    todo: { completed, id, title },
   } = props;
 
   const viewMode = {};
@@ -36,7 +36,7 @@ const TodoItem = (props) => {
     editMode.display = 'none';
   }
 
-  const { hundleChangeProps, deleteTodoProps, setUpdate } = props;
+  const { handleChangeProps, deleteTodoProps, setUpdate } = props;
 
   return (
     <li className={styles.item}>
@@ -45,7 +45,7 @@ const TodoItem = (props) => {
           type="checkbox"
           className={styles.checkbox}
           checked={completed}
-          onChange={() => hundleChangeProps(id)}
+          onChange={() => handleChangeProps(id)}
         />
         <button type="button" onClick={() => deleteTodoProps(id)}>
           <FaTrash style={{ color: 'orangered', fontSize: '16px' }} />
@@ -69,7 +69,7 @@ const TodoItem = (props) => {
 TodoItem.propTypes = {
   todo: PropTypes.objectOf(PropTypes.string, PropTypes.string, PropTypes.bool)
     .isRequired,
-  hundleChangeProps: PropTypes.func.isRequired,
+  handleChangeProps: PropTypes.func.isRequired,
   deleteTodoProps: PropTypes.func.isRequired,
   setUpdate: PropTypes.func.isRequired,
 };

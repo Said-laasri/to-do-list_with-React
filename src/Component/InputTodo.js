@@ -23,8 +23,6 @@ const InputTodo = (props) => {
       setInputText({
         title: '',
       });
-    } else {
-      alert('Please enter a valid title');
     }
   };
 
@@ -33,20 +31,20 @@ const InputTodo = (props) => {
       <input
         type="text"
         className="input-text"
-        placeholder="What do you need to do?"
-        name="title"
+        placeholder="Add todo..."
         value={inputText.title}
+        name="title"
         onChange={onChange}
       />
       <button type="submit" className="input-submit">
-        <FaPlusCircle
-          style={{ color: 'darkcyan', fontSize: '20px', marginTop: '2px' }}
-        />
+        <FaPlusCircle color="darkcyan" size="20px" className="submit-icon" />
       </button>
     </form>
   );
 };
 
-InputTodo.propTypes = { addTodoProps: PropTypes.func.isRequired };
+InputTodo.propTypes = {
+  addTodoProps: PropTypes.func.isRequired,
+};
 
 export default InputTodo;

@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 
-const TodoList = (props) => {
+const TodosList = (props) => {
   const {
-    todos, hundleChangeProps, deleteTodoProps, setUpdate,
+    todos, handleChangeProps, deleteTodoProps, setUpdate,
   } = props;
 
   return (
@@ -12,7 +12,7 @@ const TodoList = (props) => {
         <TodoItem
           key={todo.id}
           todo={todo}
-          hundleChangeProps={hundleChangeProps}
+          handleChangeProps={handleChangeProps}
           deleteTodoProps={deleteTodoProps}
           setUpdate={setUpdate}
         />
@@ -21,13 +21,13 @@ const TodoList = (props) => {
   );
 };
 
-TodoList.propTypes = {
+TodosList.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.objectOf(PropTypes.string, PropTypes.string, PropTypes.bool),
   ).isRequired,
-  hundleChangeProps: PropTypes.func.isRequired,
+  handleChangeProps: PropTypes.func.isRequired,
   deleteTodoProps: PropTypes.func.isRequired,
   setUpdate: PropTypes.func.isRequired,
 };
 
-export default TodoList;
+export default TodosList;
